@@ -45,7 +45,7 @@ class IdentifierExpression(Expression):
         self.literal = self.token.literal
 
     def __repr__(self):
-        return f"IdentifierExpression('{self.literal}')"
+        return f"ast.IdentifierExpression('{self.literal}')"
 
 class BlockStatement:
 
@@ -66,7 +66,7 @@ class IfExpression:
         self.alt = alt
     
     @property
-    def has_alt():
+    def has_alt(self):
         return self.alt is not None
     
     def __repr__(self):
@@ -82,7 +82,7 @@ class FunctionLiteral:
     def __repr__(self):
         return f"ast.FunctionLiteral('{self.name.literal}', {[x.literal for x in self.params]})"
 
-class FunctionCall:
+class FunctionCall(Expression):
 
     def __init__(self, name, args):
         self.name = name
